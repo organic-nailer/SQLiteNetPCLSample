@@ -5,7 +5,26 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <ListView x:Name="listView"
+                              Grid.Column="0"
+                              Grid.Row="0"
+                              VerticalOptions="FillAndExpand"
+                              ItemsSource="{Binding FuncItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding FuncName}"
+                                               FontAttributes="Italic" />
+                            <Label Text="{Binding Functions}"/>
+                            <Label Text="{Binding Id}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add"
+                Command="{Binding ButtonClickedCommand}"/>
     </StackLayout>
 
 </ContentPage>
